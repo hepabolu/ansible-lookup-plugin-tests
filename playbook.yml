@@ -1,0 +1,18 @@
+---
+- name: Test playbook
+  hosts: 127.0.0.1
+  connection: local
+
+  vars:
+    local_file_name: "{{ lookup('pipe', 'pwd') }}"
+
+  roles:
+    - test_role_with_files
+    - test_role_without_files
+
+  tasks:
+    - name: task_in_playbook_with_variable
+      debug: var=local_file_name
+
+    - name: task_in_playbook_with_lookup_plugin
+      debug: msg="{{ lookup('pipe', 'pwd') }}"

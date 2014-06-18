@@ -1,0 +1,7 @@
+---
+
+- name: task_in_role_without_files_variable
+  debug: var=local_file_name
+
+- name: task_in_role_without_files_lookup_plugin
+  debug: msg="{{ lookup('pipe', 'pwd') }}"

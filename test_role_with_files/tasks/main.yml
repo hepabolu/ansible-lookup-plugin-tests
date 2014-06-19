@@ -5,3 +5,6 @@
 
 - name: task_in_role_with_files_lookup_plugin
   debug: msg="{{ lookup('pipe', 'pwd') }}"
+
+- name: task_in_rol_with_files looking up the file
+  debug: msg="{{ lookup('pipe', 'ls -1 files/*.txt') }}"
